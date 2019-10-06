@@ -1,9 +1,14 @@
 {
   "name": "famix",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a FAMIX model written typescript",
-  "main": "famix_repository.js",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
   "files": ["build/**/*"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pascalerni/famix.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
     "build" : "tsc",
