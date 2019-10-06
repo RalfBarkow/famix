@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "outDir": "build",
+        "outDir": "dist",
         "incremental": true,
         "pretty": true,
         "noFallthroughCasesInSwitch": true,
