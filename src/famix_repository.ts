@@ -22,18 +22,25 @@ export class FamixRepository {
   }
 
   public createOrGetFamixClass(name: string, isInterface?: boolean): Class {
+    let newClass = this.getFamixClass(name);
+    if (newClass===undefined){
+      newClass = new Class(this);
+      newClass.setName(name.toLowerCase());
+      newClass.setIsStub(true);
+      if ((isInterface) && (isInterface === true)) {
+        newClass.setIsInterface(true);
+      }
+    }
+    return newClass;
+  }
+
+  public getFamixClass(name: string): Class | undefined {
     for (const fc of this.famixClasses) {
       if (fc.getName().toLowerCase() === name.toLowerCase()) {
         return fc;
       }
     }
-    const newClass = new Class(this);
-    newClass.setName(name.toLowerCase());
-    newClass.setIsStub(true);
-    if ((isInterface) && (isInterface === true)) {
-      newClass.setIsInterface(true);
-    }
-    return newClass;
+    return undefined;
   }
 
   public addElement(element: FamixBaseElement) {
