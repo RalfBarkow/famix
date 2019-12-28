@@ -1,6 +1,6 @@
 import {FamixBaseElement} from "./famix_base_element";
-import {Class} from "./model/famix/Class";
-import {CustomSourceLanguage} from "./model/famix/custom_source_language";
+import {Class} from "./model/famix";
+import {CustomSourceLanguage} from "./model/famix";
 
 export class FamixRepository {
   private elements: Set<FamixBaseElement> = new Set<FamixBaseElement>();
@@ -23,11 +23,11 @@ export class FamixRepository {
 
   public createOrGetFamixClass(name: string, isInterface?: boolean): Class {
     let newClass = this.getFamixClass(name);
-    if (newClass===undefined){
+    if (newClass === undefined) {
       newClass = new Class(this);
       newClass.setName(name.toLowerCase());
       newClass.setIsStub(true);
-      if ((isInterface) && (isInterface === true)) {
+      if ((isInterface !== undefined) && (isInterface)) {
         newClass.setIsInterface(true);
       }
     }
