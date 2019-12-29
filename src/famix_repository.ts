@@ -21,6 +21,10 @@ export class FamixRepository {
     return this.repo;
   }
 
+  public static clearFamixRepo() {
+      this.repo = new FamixRepository();
+  }
+
   public createOrGetFamixClass(name: string, isInterface?: boolean): Class {
     let newClass = this.getFamixClass(name);
     if (newClass === undefined) {
